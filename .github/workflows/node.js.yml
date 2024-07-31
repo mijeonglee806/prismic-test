@@ -25,11 +25,11 @@ jobs:
         WEBHOOK_PAYLOAD: ${{ secrets.WEBHOOK_PAYLOAD }}
 
     - name: Commit and push changes
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT }}
       run: |
-        git config user.name "mijeonglee806"
-        git config user.email "mlee@markanthony.com"
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
         git add .
         git commit -m "Processed video data from webhook"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT }} # Use the PAT for authentication
+        git push origin HEAD:main
