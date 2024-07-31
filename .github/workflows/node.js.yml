@@ -24,12 +24,10 @@ jobs:
       env:
         WEBHOOK_PAYLOAD: ${{ secrets.WEBHOOK_PAYLOAD }}
 
-    - name: Commit and push changes
-      env:
-        GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT2 }}
-      run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add .
-        git commit -m "Processed video data from webhook"
-        git push origin HEAD:main
+  - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Processed video data from webhook"
+          git push https://x-access-token:${{ secrets.ACTIONS_PAT2 }}@github.com/mijeonglee806/prismic-test.git HEAD:main
