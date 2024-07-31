@@ -27,7 +27,7 @@ jobs:
     - name: Commit and push changes
       run: |
         git config user.name "mijeonglee806"
-        git config user.email "mijeonglee806@gmail.com"
+        git config user.email "mlee@markanthony.com"
         git add .
         git commit -m "Processed video data from webhook"
         git push
